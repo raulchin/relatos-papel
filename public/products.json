@@ -1,0 +1,6 @@
+[
+  { "id": 1, "nombre": "La ovejita que vino a cenar", "precio": 12.5, "stock": 10, "url": "https://ik.imagekit.io/chinraul/images_4.jpeg" },
+  { "id": 2, "nombre": "Cuentos escogidos", "precio": 8.99, "stock": 0, "url": "https://ik.imagekit.io/chinraul/images_2.jpeg" },
+  { "id": 3, "nombre": "Cuentos para leer en voz alta", "precio": 3.5, "stock": 25, "url": "https://ik.imagekit.io/chinraul/images_1.jpeg" },
+  { "id": 4, "nombre": "Cuentos clasicos", "precio": 3.25, "stock": 10, "url": "https://ik.imagekit.io/chinraul/images.jpeg" }
+]

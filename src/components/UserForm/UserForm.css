@@ -1,0 +1,73 @@
+.uf-container {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #0f172a;
+}
+
+.uf-card {
+  width: 100%;
+  max-width: 420px;
+  background: #111827;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.uf-title {
+  margin: 0 0 6px;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.uf-subtitle {
+  margin: 0 0 18px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.95rem;
+}
+
+.uf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.uf-label {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+.uf-input {
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.uf-input-error {
+  border-color: rgba(239, 68, 68, 0.9);
+}
+
+.uf-error {
+  color: #fca5a5;
+  font-size: 0.85rem;
+}
+
+.uf-btn {
+  width: 100%;
+  padding: 12px 14px;
+  border: none;
+  border-radius: 12px;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.05s ease, opacity 0.2s ease;
+}

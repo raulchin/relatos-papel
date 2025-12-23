@@ -3,22 +3,30 @@ import "./products.css";
 
 import ProductGrid from "./ProductGrid";
 
+import { useCart } from "../../context/CartContext";
+
+const PRODUCTS_KEY = "products_stock_v1";
 
 export default function ProductList() {
 
   const [products, setProducts] = useState([]);
-
   const [query, setQuery] = useState("");
-
   const [loading, setLoading] = useState(true);
-
   const [error, setError] = useState("");
+
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const load = async () => {
       try {
         setLoading(true);
         setError("");
+
+        const cached = localStorage.getItem(PRODUCTS_KEY);
+        if (cached) {
+          setProducts(JSON.parse(cached));
+          return;
+        }
 
         const res = await fetch("/products.json");
         if (!res.ok) throw new Error(`Error HTTP: ${res.status}`);
@@ -34,6 +42,29 @@ export default function ProductList() {
 
     load();
   }, []);
+
+  // Persistir stock actualizado
+  useEffect(() => {
+    if (products.length) {
+      localStorage.setItem(PRODUCTS_KEY, JSON.stringify(products));
+    }
+  }, [products]);
+
+   //Restamos el stock y agregas al carrito
+  const handleAdd = (product) => {
+    const stockNum = Number(product.stock ?? 0);
+    if (stockNum <= 0) return;
+
+    // 1) agrega al carrito (setState del provider)
+    addToCart(product);
+
+    // 2) baja stock en productos (solo setProducts aquí)
+    setProducts((prev) =>
+      prev.map((p) =>
+        p.id === product.id ? { ...p, stock: Number(p.stock ?? 0) - 1 } : p
+      )
+    );
+  };
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -75,7 +106,9 @@ export default function ProductList() {
       {loading && <div className="prod-info">Cargando productos...</div>}
       {error && <div className="prod-error">No se pudo cargar: {error}</div>}
 
-      {!loading && !error && <ProductGrid products={filtered} />}
+      {!loading && !error && (
+        <ProductGrid products={filtered} onAdd={handleAdd} />
+      )}
     </section>
   );
 }

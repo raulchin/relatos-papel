@@ -2,16 +2,14 @@ import React from "react";
 
 import ProductCard from "./ProductCard";
 
-export default function ProductGrid( {products} ) {
+export default function ProductGrid( {products, onAdd} ) {
 
-    if (!products?.length) {
-    return <div className="prod-info">No hay productos para mostrar.</div>;
-  }
+  if (!products?.length) return <div className="prod-info">No hay productos.</div>;
 
   return (
     <div className="pc-grid">
       {products.map((p) => (
-        <ProductCard key={p.id ?? `${p.nombre}-${p.precio}`} product={p} />
+        <ProductCard key={p.id} product={p} onAdd={onAdd} />
       ))}
     </div>
   );

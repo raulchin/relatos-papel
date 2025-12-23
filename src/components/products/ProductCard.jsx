@@ -1,21 +1,16 @@
 import React from "react";
 
-import { useCart } from "../../context/CartContext";
 
-export default function ProductCard( {product}) {
+export default function ProductCard( {product, onAdd}) {
     
     const { nombre, precio, stock, url } = product;
-
     const stockNum = Number(stock ?? 0);
-
     const status = stockNum <= 0 ? "Agotado" : stockNum <= 5 ? "Bajo stock" : "Disponible";
 
     const priceText = new Intl.NumberFormat("es-EC", {
     style: "currency",
     currency: "USD",
   }).format(Number(precio ?? 0));
-
-  const { addToCart } = useCart();
 
   return (
     <article className="pc-card">
@@ -51,7 +46,7 @@ export default function ProductCard( {product}) {
           className="pc-btn"
           type="button"
           disabled={stockNum <= 0}
-          onClick={() => addToCart(product) }
+          onClick={() => onAdd(product)}
         >
           {stockNum <= 0 ? "Sin stock" : "Agregar"}
         </button>

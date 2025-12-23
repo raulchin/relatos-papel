@@ -1,22 +1,19 @@
-import { useState } from 'react'
+import React from "react";
 import './App.css'
-import Header from './components/Header';
-import Footer from './components/Footer';
-import { Anime } from './components/Anime';
-import { Movies } from './components/Movies';
+import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
+import AppRoutes from './routes/AppRoutes';
 
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
       <div>
-        <Header title = "Relatos de Papel" subtitle = "Home Page"/>
-        <Anime />
-        <Movies />
+        <Header title = "Relatos de Papel" subtitle = "Bienvenidos a Relatos de Papel"/>
+        <AppRoutes/>
         <Footer/>        
       </div>
   );
 }
 
-export default App
+export default App;

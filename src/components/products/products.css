@@ -1,0 +1,167 @@
+/* Layout general */
+.prod-wrap{
+  padding: 24px;
+  color: #fff;
+  background: #0f172a;
+}
+
+.prod-header{
+  display: flex;
+  gap: 16px;
+  align-items: end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.prod-title{ margin: 0; font-size: 1.4rem; }
+.prod-subtitle{ margin: 6px 0 0; color: rgba(255,255,255,.65); }
+
+.prod-search{
+  min-width: 260px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  color: #fff;
+  outline: none;
+}
+.prod-search::placeholder{ color: rgba(255,255,255,.4); }
+
+.prod-info{
+  padding: 14px 0;
+  color: rgba(255,255,255,.75);
+}
+
+.prod-error{
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(239,68,68,.15);
+  border: 1px solid rgba(239,68,68,.35);
+  color: #fecaca;
+}
+
+/* GRID de cards */
+.pc-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+/* Card */
+.pc-card{
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(17,24,39,.75);
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,.25);
+  transition: transform .12s ease, border-color .2s ease;
+}
+.pc-card:hover{
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,.18);
+}
+
+/* Imagen */
+.pc-imgWrap{
+  position: relative;
+  width: 100%;
+  height: 160px;
+  background: rgba(255,255,255,.06);
+}
+.pc-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Badge estado */
+.pc-badge{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: .8rem;
+  border: 1px solid rgba(255,255,255,.16);
+  backdrop-filter: blur(8px);
+}
+.pc-badge--ok{ background: rgba(34,197,94,.18); }
+.pc-badge--warn{ background: rgba(245,158,11,.22); }
+.pc-badge--bad{ background: rgba(239,68,68,.20); }
+
+/* Cuerpo */
+.pc-body{
+  padding: 14px;
+  
+}
+
+.pc-title{
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.pc-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.pc-label{ color: rgba(255,255,255,.65); }
+.pc-value{ font-weight: 800; }
+
+/* Botón */
+.pc-btn{
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 12px;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+  transition: opacity .2s ease, transform .05s ease;
+}
+.pc-btn:hover{ opacity: .95; }
+.pc-btn:active{ transform: translateY(1px); }
+
+.pc-btn:disabled{
+  background: rgba(255,255,255,.10);
+  color: rgba(255,255,255,.55);
+  cursor: not-allowed;
+}
+
+.hp-container {
+  min-height: 100vh;
+  display: grid;
+  padding: 24px;
+  background: #0f172a;
+}
+
+
+.search-wrap{
+  position: relative;
+  display: inline-block;
+}
+
+.prod-search{
+  padding-right: 44px; /* espacio para la lupa */
+}
+
+.search-icon{
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255,255,255,.7);
+  pointer-events: none; /* para que no bloquee el click en el input */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
